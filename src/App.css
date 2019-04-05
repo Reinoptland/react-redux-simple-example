@@ -8,29 +8,3 @@ main {
   justify-content: space-around;
 }
 
-form {
-  height: 60vh;
-  align-self: flex-start;
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-
-form input {
-  width: 30vw;
-  border: 1px solid black;
-}
-
-form textarea {
-  border: 1px solid black;
-  width: 30vw;
-  height: 20vh;
-}
-
-input[type=submit]{
-  background: #61dafb;
-  width: 15vw;
-  font-weight: 800;
-}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import QuotesList from './components/QuotesList';
 import Header from './components/Header';
+import QuoteForm from './components/QuoteForm';
 
 class App extends Component {
   state = {
@@ -19,23 +20,11 @@ class App extends Component {
         source: "Muhammad Waseem"
       },
     ],
-    content: '',
-    source: ''
   }
 
-  handleChange = (event) => {
-    const name = event.target.name
-    const value = event.target.value
-    this.setState({ [name]: value })
-  }
-
-  addQuote = (event) => {
-    event.preventDefault()
-    const { source, content, quotes } = this.state
+  addQuote = (source, content) => {
     this.setState({
-      quotes: quotes.concat({ source, content }),
-      source: "",
-      content: ""
+      quotes: this.state.quotes.concat({ source, content }),
     })
   }
 
@@ -45,23 +34,7 @@ class App extends Component {
         <Header />
         <main>
 
-          <form onSubmit={this.addQuote}>
-            <h2>Add a new quote:</h2>
-            <label htmlFor="content">Content</label>
-            <textarea 
-              name="content" 
-              value={this.state.content}
-              onChange={this.handleChange} 
-            >
-            </textarea>
-            <label htmlFor="source">Source</label>
-            <input 
-              name="source"
-              value={this.state.source}
-              onChange={this.handleChange}/>
-            <input type="submit"/>
-          </form>
-
+          <QuoteForm addQuote={this.addQuote}/>
           <QuotesList quotes={this.state.quotes}/>
 
         </main>
