@@ -16,7 +16,7 @@ const QuotesList = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        quotes: state
+        quotes: state.quotes
     }
 }
 
