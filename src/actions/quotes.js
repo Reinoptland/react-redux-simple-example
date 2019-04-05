@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { appIsLoading, appIsDoneLoading } from './appStatus'
 
 export const ADD_QUOTE = 'ADD_QUOTE'
 export const SET_QUOTES = 'SET_QUOTES'
@@ -22,13 +23,18 @@ export const setQuotes = (quotes) => {
 
 export const getQuotes = () => {
     return (dispatch) => {
+        dispatch(appIsLoading())
         request.get('http://localhost:4000/quotes')
             .then(response => {
                 dispatch(setQuotes(response.body))
+                dispatch(appIsDoneLoading())
             })
             .catch(error => {
                 alert(error)
-                alert('parhaps you did start the api with "npm run api"? (run that in a seperate terminal)')
+                alert('parhaps you did not start the api with "npm run api"? (run that in a seperate terminal)')
+                const EMPTY_ARRAY = []
+                dispatch(setQuotes(EMPTY_ARRAY))
+                dispatch(appIsDoneLoading())
             })
     }
 }
