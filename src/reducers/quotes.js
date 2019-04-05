@@ -1,6 +1,8 @@
+import { ADD_QUOTE } from '../actions/quotes'
+
 export default (state = initialState, action = {}) => {
     switch (action.type) {
-    case 'ADD_QUOTE': 
+    case ADD_QUOTE: 
         return [...state, action.payload]
     default:
         return state

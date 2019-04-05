@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { addQuote } from '../../actions/quotes'
 import './QuoteForm.css'
 
 class QuoteForm extends Component {
@@ -17,16 +18,7 @@ class QuoteForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const { source, content } = this.state
-        
-        const action = {
-            type: 'ADD_QUOTE',
-            payload: {
-                source,
-                content
-            }
-        }
-
-        this.props.dispatch(action)
+        this.props.addQuote(source, content)
         this.setState({ content: '', source: '' })
     }
 
@@ -51,5 +43,5 @@ class QuoteForm extends Component {
     }
 }
 
-export default connect()(QuoteForm)
+export default connect(null, { addQuote })(QuoteForm)
 
