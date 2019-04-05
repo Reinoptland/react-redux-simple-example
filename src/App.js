@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Quote from './components/Quote';
+import QuotesList from './components/QuotesList';
 
 class App extends Component {
   state = {
@@ -65,13 +65,7 @@ class App extends Component {
             <input type="submit"/>
           </form>
 
-          <section>
-            {this.state.quotes.map(quote => {
-              return(
-                <Quote quote={quote} />
-                )
-            })}
-          </section>
+          <QuotesList quotes={this.state.quotes}/>
 
         </main>
       </div>
