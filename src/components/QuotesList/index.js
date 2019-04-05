@@ -1,17 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Quote from '../Quote'
+import { getQuotes } from '../../actions/quotes'
 import { connect } from 'react-redux';
 
-const QuotesList = (props) => {
-    return (
-        <ul>
-            {props.quotes.map(quote => {
-                return(
-                    <Quote key={quote.id} quote={quote} />
-                )
-            })}
-        </ul>
-    )
+class QuotesList extends Component {
+    componentDidMount(){
+       this.props.getQuotes()
+    }
+
+    render(){
+        return (
+            <ul>
+                {this.props.quotes !== null && this.props.quotes.map(quote => {
+                    return(
+                        <Quote key={quote.id} quote={quote} />
+                    )
+                })}
+            </ul>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -20,4 +27,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(QuotesList)
+export default connect(mapStateToProps, { getQuotes })(QuotesList)
