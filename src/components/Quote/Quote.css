@@ -1,0 +1,29 @@
+.Quote {
+    background: #61dafb;
+    border-left: 10px solid #282c34;
+    width: 40vw;
+    margin: 0.5em 10px;
+    padding: 0.5em 10px;
+}
+  
+.Quote__content:before {
+    color: #282c34;
+    content: '“';
+    font-size: 2em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+  
+.Quote__content:after {
+    color: #282c34;
+    content: '“';
+    font-size: 2em;
+    line-height: 0.1em;
+    margin-right: 0.25em;
+    vertical-align: -0.4em;
+}
+
+.Quote__content {
+    display: inline;
+}
