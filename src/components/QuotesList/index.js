@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Quote from '../Quote'
 import { getQuotes } from '../../actions/quotes'
 import { connect } from 'react-redux';
+import LoadingModal from '../LoadingModal';
 
 class QuotesList extends Component {
     componentDidMount(){
@@ -9,6 +10,10 @@ class QuotesList extends Component {
     }
 
     render(){
+        if(this.props.loading){
+            return <LoadingModal />
+        }
+        
         return (
             <ul>
                 {this.props.quotes !== null && this.props.quotes.map(quote => {
@@ -23,7 +28,8 @@ class QuotesList extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        quotes: state.quotes
+        quotes: state.quotes,
+        loading: state.appStatus.loading
     }
 }
 
