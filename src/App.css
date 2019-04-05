@@ -2,77 +2,9 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-blockquote {
-  background: #61dafb;
-  border-left: 10px solid #282c34;
-  width: 40vw;
-  margin: 0.5em 10px;
-  padding: 0.5em 10px;
-  quotes: "\201C""\201D""\2018""\2019";
-}
-
-blockquote p:before {
-  color: #282c34;
-  content: '“';
-  font-size: 2em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-
-blockquote p:after {
-  color: #282c34;
-  content: '“';
-  font-size: 2em;
-  line-height: 0.1em;
-  margin-right: 0.25em;
-  vertical-align: -0.4em;
-}
-
-blockquote p {
-  display: inline;
-}
-
 main {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-form {
-  height: 60vh;
-  align-self: flex-start;
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  
-}
-
-form input {
-  width: 30vw;
-  border: 1px solid black;
-}
-
-form textarea {
-  border: 1px solid black;
-  width: 30vw;
-  height: 20vh;
-}
-
-input[type=submit]{
-  background: #61dafb;
-  width: 15vw;
-  font-weight: 800;
-}

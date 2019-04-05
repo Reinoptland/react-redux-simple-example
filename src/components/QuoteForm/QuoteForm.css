@@ -1,0 +1,26 @@
+.QuoteForm {
+    height: 60vh;
+    align-self: flex-start;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+  
+.QuoteForm__input {
+    width: 30vw;
+    border: 1px solid black;
+}
+  
+.QuoteForm__textarea {
+    border: 1px solid black;
+    width: 30vw;
+    height: 20vh;
+}
+  
+.QuoteForm__submitButton{
+    background: #61dafb;
+    width: 15vw;
+    font-weight: 800;
+}

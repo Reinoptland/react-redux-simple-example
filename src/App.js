@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
+import QuotesList from './components/QuotesList';
+import Header from './components/Header';
+import QuoteForm from './components/QuoteForm';
 
 class App extends Component {
   state = {
@@ -17,64 +20,22 @@ class App extends Component {
         source: "Muhammad Waseem"
       },
     ],
-    content: '',
-    source: ''
   }
 
-  handleChange = (event) => {
-    const name = event.target.name
-    const value = event.target.value
-    this.setState({ [name]: value })
-  }
-
-  addQuote = (event) => {
-    event.preventDefault()
-    const { source, content, quotes } = this.state
+  addQuote = (source, content) => {
     this.setState({
-      quotes: quotes.concat({ source, content }),
-      source: "",
-      content: ""
+      quotes: this.state.quotes.concat({ source, content }),
     })
   }
 
   render() {
     return (
       <div className="App">
-
-        <header className="App-header">
-          <h1>Quotes</h1>
-        </header>
-
+        <Header />
         <main>
 
-          <form onSubmit={this.addQuote}>
-            <h2>Add a new quote:</h2>
-            <label htmlFor="content">Content</label>
-            <textarea 
-              name="content" 
-              value={this.state.content}
-              onChange={this.handleChange} 
-            >
-            </textarea>
-            <label htmlFor="source">Source</label>
-            <input 
-              name="source"
-              value={this.state.source}
-              onChange={this.handleChange}/>
-            <input type="submit"/>
-          </form>
-
-          <section>
-            {this.state.quotes.map(quote => {
-              return(
-                <blockquote key={quote.id}>
-                  <p>{quote.content}</p>
-                  <br/>
-                  <b><i>- {quote.source}</i></b>
-                </blockquote>
-                )
-            })}
-          </section>
+          <QuoteForm addQuote={this.addQuote}/>
+          <QuotesList quotes={this.state.quotes}/>
 
         </main>
       </div>
