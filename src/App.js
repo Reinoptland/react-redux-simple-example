@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import QuotesList from './components/QuotesList';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -41,11 +42,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
-        <header className="App-header">
-          <h1>Quotes</h1>
-        </header>
-
+        <Header />
         <main>
 
           <form onSubmit={this.addQuote}>
