@@ -11,7 +11,7 @@ class App extends Component {
         <Header />
         <main>
 
-          <QuoteForm addQuote={this.addQuote}/>
+          <QuoteForm />
           <QuotesList />
 
         </main>
