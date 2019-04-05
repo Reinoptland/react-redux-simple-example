@@ -5,12 +5,6 @@ import Header from './components/Header';
 import QuoteForm from './components/QuoteForm';
 
 class App extends Component {
-  addQuote = (source, content) => {
-    this.setState({
-      quotes: this.state.quotes.concat({ source, content }),
-    })
-  }
-
   render() {
     return (
       <div className="App">

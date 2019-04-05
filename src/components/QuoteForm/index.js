@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import './QuoteForm.css'
 
-export default class QuoteForm extends Component {
+class QuoteForm extends Component {
     state = {
         content: '',
         source: ''
@@ -16,7 +17,16 @@ export default class QuoteForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const { source, content } = this.state
-        this.props.addQuote(source, content)
+        
+        const action = {
+            type: 'ADD_QUOTE',
+            payload: {
+                source,
+                content
+            }
+        }
+
+        this.props.dispatch(action)
         this.setState({ content: '', source: '' })
     }
 
@@ -40,3 +50,6 @@ export default class QuoteForm extends Component {
         </form>
     }
 }
+
+export default connect()(QuoteForm)
+
