@@ -1,7 +1,9 @@
 export default (state = initialState, action = {}) => {
     switch (action.type) {
+    case 'ADD_QUOTE': 
+        return [...state, action.payload]
     default:
-      return state
+        return state
     }
 }
 
