@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Quote from './components/Quote';
 
 class App extends Component {
   state = {
@@ -67,11 +68,7 @@ class App extends Component {
           <section>
             {this.state.quotes.map(quote => {
               return(
-                <blockquote key={quote.id}>
-                  <p>{quote.content}</p>
-                  <br/>
-                  <b><i>- {quote.source}</i></b>
-                </blockquote>
+                <Quote quote={quote} />
                 )
             })}
           </section>
