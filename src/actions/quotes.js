@@ -32,6 +32,8 @@ export const getQuotes = () => {
             .catch(error => {
                 alert(error)
                 alert('parhaps you did start the api with "npm run api"? (run that in a seperate terminal)')
+                const EMPTY_ARRAY = []
+                dispatch(setQuotes(EMPTY_ARRAY))
                 dispatch(appIsDoneLoading())
             })
     }
