@@ -1,7 +1,8 @@
 import React from 'react'
 import Quote from '../Quote'
+import { connect } from 'react-redux';
 
-export default (props) => {
+const QuotesList = (props) => {
     return (
         <ul>
             {props.quotes.map(quote => {
@@ -12,3 +13,11 @@ export default (props) => {
         </ul>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        quotes: state
+    }
+}
+
+export default connect(mapStateToProps)(QuotesList)
