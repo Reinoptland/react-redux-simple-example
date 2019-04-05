@@ -6,7 +6,7 @@ export default (props) => {
         <ul>
             {props.quotes.map(quote => {
                 return(
-                    <Quote quote={quote} />
+                    <Quote key={quote.id} quote={quote} />
                 )
             })}
         </ul>
